@@ -3,21 +3,94 @@ $(function () {
 		return (angkanya >>> 0).toString(2);
 	}
 
+	function makebin(Anya, lenn) {
+		var Mantul = "";
+		Mantul = inttobinary(Anya);
+		while(Mantul.length < lenn) {
+			Mantul = "0"+Mantul;
+		}
+		return Mantul;
+	}
+
+	function normalize(number, lenn) {
+		var angkanya = number;
+		if(number >= Math.pow(2, lenn)) {
+			angkanya = angkanya-Math.pow(2, lenn);
+		}
+
+		return angkanya;
+	}
+
 	$(document).on('submit', '#formDivision', function(event) {
 		event.preventDefault();
-
+		var bindivider, binsource;
+		var html;
 		var source = $('#formDivision input[name=source]').val();
 		var divider = $('#formDivision input[name=divider]').val();
 
-		var binsource = inttobinary(-3);
-		var bindivider = inttobinary(divider);
+		var M = divider;
+		var A = 0;
+		var Q = source;
 
-		var source2 = source << 1;
+		var banyakQ = inttobinary(Q).length;
 
-		while(binsource.length % 4 != 0) {
-			binsource = "0" + binsource;
+		html = "<tr>"+
+			"<td>"+0+
+			"</td>"+
+			"<td>"+inttobinary(M)+
+			"</td>"+
+			"<td>"+makebin(A, banyakQ)+
+			"</td>"+
+			"<td>"+makebin(Q, banyakQ)+
+			"</td>"+
+			+"</tr>";
+
+			$('#result > tbody').append(html);
+
+		for (var i = 0; i < banyakQ; i++) {
+			A = A << 1;
+			var check = makebin(Q, banyakQ).substr(0,1);
+			if (check == "1") {
+				A = A+1;
+			}
+			Q = Q << 1;
+
+			A = normalize(A, banyakQ);
+			Q = normalize(Q, banyakQ);
+
+			html = "<tr>"+
+			"<td>"+(i+1)+
+			"</td>"+
+			"<td>"+inttobinary(M)+
+			"</td>"+
+			"<td>"+makebin(A, banyakQ)+
+			"</td>"+
+			"<td>"+makebin(Q, banyakQ)+
+			"</td>"+
+			+"</tr>";
+
+			$('#result > tbody').append(html);
+
+			var hasilAM = A-M;
+
+			if (hasilAM >= 0) {
+				Q = Q+1;
+				A = hasilAM;
+			}
+
+			html = "<tr>"+
+			"<td>"+(i+1)+
+			"</td>"+
+			"<td>"+inttobinary(M)+
+			"</td>"+
+			"<td>"+makebin(A, banyakQ)+
+			"</td>"+
+			"<td>"+makebin(Q, banyakQ)+
+			"</td>"+
+			+"</tr>";
+
+			$('#result > tbody').append(html);
 		}
 
-		alert(binsource.substring(binsource.length-4, binsource.length));
 	});
 })

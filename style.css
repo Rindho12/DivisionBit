@@ -4,14 +4,12 @@
 body {
 	font-family: "calibri";
 	margin: 0;
-	scroll-snap-type: y mandatory;
 }
-body section {
-	scroll-snap-align: start;
+body > section {
 	min-height: 100vh;	
 }
 body section#first-part {
-	background-color: #3498db;
+	background: linear-gradient(0deg, rgba(52, 152, 219, 0.9), rgba(52, 152, 219, 0.9)), url(bg.png);
 }
 body section#second-part {
 	background-color: #dddddd;
