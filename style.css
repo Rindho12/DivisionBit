@@ -1,6 +1,19 @@
 * {
 	box-sizing: border-box;
 }
+ol, ul {
+	padding-left:20px;
+}
+table {
+	border-spacing: 0;
+}
+p {
+	margin: 0;
+}
+table tr.underline > td,
+table tr.underline > th {
+	border-bottom: 1px solid black;
+}
 body {
 	font-family: "calibri";
 	margin: 0;
@@ -50,6 +63,9 @@ button:hover {
 .columns {
 	display: flex;
 }
+.columns.padded > .col {
+	padding: 15px;
+}
 .columns.multiline {
 	flex-wrap: wrap;
 }
@@ -61,6 +77,9 @@ button:hover {
 }
 .columns.middled {
 	align-items: center;
+}
+.columns.topped {
+	align-items: flex-start;
 }
 .columns .col {
 	width: 100%;	

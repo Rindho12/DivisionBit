@@ -29,11 +29,11 @@
 	</section>
 
 	<section id="second-part" class="columns">
-		<div class="col columns multiline">
-			<table border="1" id="result">
+		<div class="col columns multiline centered padded">
+			<table class="col sm-10" id="result">
 				<thead>
-					<tr>
-						<th>Iterasi</th>
+					<tr class="underline">
+						<th width="30px">Iterasi</th>
 						<th>M</th>
 						<th>A</th>
 						<th>Q</th>
@@ -43,30 +43,44 @@
 				</tbody>
 			</table>
 		</div>
-		<div class="col columns multiline">
+		<div class="col columns multiline padded topped">
 			<div class="col">
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				<p>Step by step: </p>
+				<ol>
+					<li>
+						<p>Masukkan divisor (V/pembagi) ke register M. Masukkan dividend (D/bilangan yang akan dibagi) ke register A dan Q, dalam bentuk perpanjangan bit 2 kalinya. V dan D dalam bentuk UNSIGNED/positif.</p>
+					</li>
+					<li>
+						<p>Shift kiri A dan Q sebanyak 1 bit.</p>
+					</li>
+					<li>
+						<p>A &larr; A – M.</p>
+					</li>
+					<li>
+						<p>a. Jika A=0 atau nonnegatif, Q0 &larr; 1</p>
+						<p>b. Jika A=negatif, Q0 &larr; 0 dan restore nilai A sebelumnya</p>
+					</li>
+					<li>
+						<p>Ulangi langkah 2 hingga 4 sebanyak bit Q.</p>
+					</li>
+					<li>
+						<p> Kita mendapatkan hasil/quotient di register Q dan sisa pembagian/remainder/R di register A.</p>
+					</li>
+				</ol>
 			</div>
-			<div class="col">
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-			</div>
-			<div class="col">
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			<div class="col" id="hasilnya">
+				<p>Hasil perhitungan: </p>
+				<ol>
+					<li>
+						<p>Hasil/Q : <span id="hasil-Q"></span></p>
+					</li>
+					<li>
+						<p>Sisa/A : <span id="hasil-A"></span></p>
+					</li>
+					<li>
+						<p> Kita mendapatkan hasil/quotient di register Q dan sisa pembagian/remainder/R di register A.</p>
+					</li>
+				</ol>
 			</div>
 		</div>
 	</section>

@@ -34,7 +34,7 @@ $(function () {
 
 		var banyakQ = inttobinary(Q).length;
 
-		html = "<tr>"+
+		html = "<tr class='underline'>"+
 			"<td>"+0+
 			"</td>"+
 			"<td>"+inttobinary(M)+
@@ -78,8 +78,8 @@ $(function () {
 				A = hasilAM;
 			}
 
-			html = "<tr>"+
-			"<td>"+(i+1)+
+			html = "<tr class='underline'>"+
+			"<td>"+
 			"</td>"+
 			"<td>"+inttobinary(M)+
 			"</td>"+
@@ -92,5 +92,7 @@ $(function () {
 			$('#result > tbody').append(html);
 		}
 
+		$('#second-part #hasilnya #hasil-A').text(A);
+		$('#second-part #hasilnya #hasil-Q').text(Q);
 	});
 })
