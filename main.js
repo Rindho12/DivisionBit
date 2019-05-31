@@ -34,6 +34,8 @@ $(function () {
 
 		var banyakQ = inttobinary(Q).length;
 
+		$('#result > tbody').html(' ');
+
 		html = "<tr class='underline'>"+
 			"<td>"+0+
 			"</td>"+
@@ -94,5 +96,9 @@ $(function () {
 
 		$('#second-part #hasilnya #hasil-A').text(A);
 		$('#second-part #hasilnya #hasil-Q').text(Q);
+
+		$('html, body').animate({
+		    scrollTop: $("#second-part").offset().top
+		}, 1000);
 	});
 })

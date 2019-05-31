@@ -6,6 +6,8 @@ ol, ul {
 }
 table {
 	border-spacing: 0;
+	font-size: 18pt;
+	text-align: center;
 }
 p {
 	margin: 0;
@@ -26,6 +28,7 @@ body section#first-part {
 }
 body section#second-part {
 	background-color: #dddddd;
+	font-size: 16pt;
 }
 body section .title > h1 {
 	color: white;
